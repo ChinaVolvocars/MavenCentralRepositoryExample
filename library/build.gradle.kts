@@ -1,73 +1,3 @@
-# MavenCentralRepositoryExample
-upload android aar to Maven Central Repository
-
-
-## 1.在项目build.gradle.kts添加下面信息
-`id("com.vanniktech.maven.publish") version "0.34.0"`
-```kotlin
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-plugins {
-  alias(libs.plugins.android.application) apply false
-  alias(libs.plugins.kotlin.android) apply false
-  alias(libs.plugins.android.library) apply false
-
-  id("com.vanniktech.maven.publish") version "0.34.0"
-}
-```
-
-## 2.在gradle.properties添加下面信息
-
-```properties
-mavenCentralUsername=xxxxxxxx
-mavenCentralPassword=xxxxxxxxx
-signing.keyId=xxx
-signing.password=xxx
-signing.secretKeyRingFile=/xxx/yyyy/secring.gpg
-```
-
-## 3.在library/build.gradle.kts添加下面信息
-`id("com.vanniktech.maven.publish") version "0.34.0"`
-
-```kotlin
-group = "io.github.chinavolvocars"
-version = "0.0.1"
-
-mavenPublishing {
-  publishToMavenCentral()
-  signAllPublications()
-
-  coordinates(group.toString(), "library", version.toString())
-
-  pom {
-    name = "library"
-    description = "A library."
-    inceptionYear = "2025"
-    url = "https://github.com/ChinaVolvocars/library/"
-    licenses {
-      license {
-        name = "The Apache License, Version 2.0"
-        url = "https://www.apache.org/licenses/LICENSE-2.0.txt"
-        distribution = "https://www.apache.org/licenses/LICENSE-2.0.txt"
-      }
-    }
-    developers {
-      developer {
-        id = "atlantis"
-        name = "Android Developer Atlantis"
-        url = "https://github.com/ChinaVolvocars/"
-      }
-    }
-    scm {
-      url = "https://github.com/ChinaVolvocars/library/"
-      connection = "scm:git:git://github.com/ChinaVolvocars/library.git"
-      developerConnection = "scm:git:ssh://git@github.com/ChinaVolvocars/library.git"
-    }
-  }
-}
-```
-
-### 完整如下图所示
-```kotlin
 plugins {
   alias(libs.plugins.android.library)
   alias(libs.plugins.kotlin.android)
@@ -149,7 +79,6 @@ mavenPublishing {
     }
   }
 }
-```
 
-## 4.点击publishToMavenCentral上传到Maven Central Repository仓库
-![publishToMavenCentral](image/img.png)
+
+
