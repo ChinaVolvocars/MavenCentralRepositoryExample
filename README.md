@@ -1,5 +1,6 @@
 # MavenCentralRepositoryExample
 upload android aar to Maven Central Repository
+发布 aar 到 Maven Central Repository 中央仓库
 
 
 ## 1.在项目build.gradle.kts添加下面信息
