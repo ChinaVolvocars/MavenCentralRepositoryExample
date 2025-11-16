@@ -25,6 +25,12 @@ signing.password=xxx
 signing.secretKeyRingFile=/xxx/yyyy/secring.gpg
 ```
 
+>注意使用`base64 -i secring.gpg -o cert.base64 `命令生成 cert.base64文件，将文件中的信息复制到 github action的`GPG_KEY_CONTENTS`中
+
+> 详情参考：[将你的库发布到 Maven Central – 教程](https://docs.kmpstudy.com/multiplatform-publish-libraries.html#z34aij9_12)
+
+> 参考2： [Storing Base64 binary blobs as secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets#storing-base64-binary-blobs-as-secrets)
+
 ## 3.在library/build.gradle.kts添加下面信息
 `id("com.vanniktech.maven.publish") version "0.34.0"`
 
