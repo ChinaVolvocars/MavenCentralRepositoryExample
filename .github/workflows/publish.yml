@@ -16,6 +16,8 @@ jobs:
         with:
           distribution: 'zulu'
           java-version: 21
+      - name: Retrieve the secret and decode it to a file
+        run: echo '${{secrets.GPG_KEY_CONTENTS}}' | base64 -d > secring.gpg
       - name: Publish to MavenCentral
         run: ./gradlew publishToMavenCentral --no-configuration-cache
         env:
