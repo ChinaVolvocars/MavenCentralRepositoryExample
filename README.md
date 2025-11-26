@@ -36,7 +36,7 @@ mavenPublishing {
   publishToMavenCentral()
   signAllPublications()
 
-  coordinates(group.toString(), "library", version.toString())
+  coordinates(group.toString(), project.name, version.toString())
 
   pom {
     name = "library"
@@ -121,7 +121,7 @@ mavenPublishing {
   publishToMavenCentral()
   signAllPublications()
 
-  coordinates(group.toString(), "library", version.toString())
+  coordinates(group.toString(), project.name, version.toString())
 
   pom {
     name = "library"
